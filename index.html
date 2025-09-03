@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Amma ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      color: #fff;
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+      max-width: 700px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 15px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 15px #fff, 0 0 25px #ff6b6b; }
+      to { text-shadow: 0 0 25px #fff, 0 0 50px #ff4757; }
+    }
+    p {
+      font-size: 1.4em;
+      line-height: 1.8;
+      margin: 12px 0;
+    }
+    button {
+      margin-top: 25px;
+      padding: 14px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 35px;
+      background: linear-gradient(45deg, #ff758c, #ff7eb3);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    button:hover {
+      background: linear-gradient(45deg, #ff6a88, #ff99ac);
+      transform: scale(1.08);
+    }
+    #hiddenMsg {
+      display:none; 
+      margin-top:25px; 
+      font-size:1.5em; 
+      font-weight:bold; 
+      color:#ffe6f2;
+      animation: heartBeat 2s infinite;
+    }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      color: #ff3366;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.8); opacity: 0; }
+    }
+    .balloons span {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #ff9a9e, #ff6b6b);
+      border-radius: 50% 50% 45% 45%;
+      animation: rise 10s infinite ease-in;
+      z-index: 0;
+    }
+    .balloons span:after {
+      content: "";
+      position: absolute;
+      top: 78px;
+      left: 27px;
+      width: 4px;
+      height: 60px;
+      background: #555;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="balloons">
+    <span style="left:10%; background: radial-gradient(circle at 30% 30%, #fbc2eb, #a18cd1);"></span>
+    <span style="left:30%; background: radial-gradient(circle at 30% 30%, #fad0c4, #ff9a9e);"></span>
+    <span style="left:50%; background: radial-gradient(circle at 30% 30%, #a1c4fd, #c2e9fb);"></span>
+    <span style="left:70%; background: radial-gradient(circle at 30% 30%, #f6d365, #fda085);"></span>
+    <span style="left:85%; background: radial-gradient(circle at 30% 30%, #fccb90, #d57eeb);"></span>
+  </div>
+
+  <div class="container">
+    <h1>🎂 Happy Birthday Amma ❤️</h1>
+    <p>Amma, we may not have talked for a while, but not a single day passes where I don’t miss you. 💕</p>
+    <p>Our bond is something I treasure deeply, and even silence cannot erase the love and memories we share. 🌸</p>
+    <p>Today, on your special day, I want you to know—you’ll always be my Amma, my best friend, my family. 🥺</p>
+    <button onclick="showMessage()">Click to Open My Heart 💖</button>
+    <p id="hiddenMsg">Amma... Life feels incomplete without your voice. I am sorry for my words give me a last and one more chance amma i wont do it again ,only a mom can do this amma , but my heart always beats with care for you. Please call me... i am waiting for you call ma 🌹</p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("hiddenMsg").style.display = "block";
+    }
+
+    // floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.getElementById("hearts").appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
